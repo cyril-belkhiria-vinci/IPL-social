@@ -1,33 +1,33 @@
 import { isValidEmail } from "./EmailChecker";
 
-describe("Email validation", () => {
+describe("EmailChecker", () => {
 
-    test("sans @", () => {
-    expect(isValidEmail("testexample.com")).toBe(false);
+    test("missing @", () => {
+    expect(isValidEmail("dahyuntwice.com")).toBe(false);
     });
 
-    test("sans point dans le domaine", () => {
-    expect(isValidEmail("test@example")).toBe(false);
+    test("missing dot in domain", () => {
+    expect(isValidEmail("dahyun@twice")).toBe(false);
     });
 
-    test("point en dernier caractère", () => {
-    expect(isValidEmail("test@example.")).toBe(false);
+    test("dot as last character", () => {
+    expect(isValidEmail("dahyun@twice.")).toBe(false);
     });
 
-    test("avec espace", () => {
-    expect(isValidEmail("test @example.com")).toBe(false);
+    test("contains space", () => {
+    expect(isValidEmail("dahyun @twice.com")).toBe(false);
     });
 
-    test("pas de texte avant @", () => {
-    expect(isValidEmail("@example.com")).toBe(false);
+    test("no text before @", () => {
+    expect(isValidEmail("@twice.com")).toBe(false);
     });
 
-    test("pas de texte après @", () => {
-    expect(isValidEmail("test@")).toBe(false);
+    test("no text after @", () => {
+    expect(isValidEmail("dahyun@")).toBe(false);
     });
 
-    test("email valide", () => {
-    expect(isValidEmail("test@example.com")).toBe(true);
+    test("valid email", () => {
+    expect(isValidEmail("dahyun@twice.com")).toBe(true);
     });
     
 });
